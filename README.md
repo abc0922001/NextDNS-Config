@@ -1,73 +1,73 @@
-# Guidelines :bookmark:
-1) Prevent overblocking by utilizing the [law of diminishing returns]() (e.g., using [sane](https://www.privacyguides.org/en/basics/threat-modeling/), quality [blocklists](https://github.com/yokoffing/NextDNS-Config#blocklists-1); allowing most [TLDs](https://github.com/yokoffing/NextDNS-Config#block-top-level-domains-tlds-1-2-3-4-5-); etc.).
-2) Pass the [grandma test](https://www.urbandictionary.com/define.php?term=Grandma%20Test) with few exceptions. These deviations are documented throughout the guide.
+# 指南 :bookmark:
+1) 利用[邊際效益遞減法則]()來防止過度封鎖（例如：使用[合理](https://www.privacyguides.org/en/basics/threat-modeling/)且高品質的[阻擋清單](https://github.com/yokoffing/NextDNS-Config#blocklists-1)；允許大多數的[頂級網域 (TLDs)](https://github.com/yokoffing/NextDNS-Config#block-top-level-domains-tlds-1-2-3-4-5-) 等）。
+2) 通過「[長輩測試](https://www.urbandictionary.com/define.php?term=Grandma%20Test)」(Grandma Test)，僅有極少數例外。這些例外情況會在指南中加以說明。
 
 ***
 
-## Create your account
+## 建立您的帳戶
 
-Sign up for NextDNS [here](https://nextdns.io/?from=xujj63g5) and support this page!
+[在此](https://nextdns.io/?from=xujj63g5)註冊 NextDNS 並支持本頁面！
 
 ***
 
-# Security :police_officer:
+# 安全性 :police_officer:
 
-Security settings protect your data from harm, theft, and unauthorized use.<sup>*^[why does this matter?](https://thenewoil.org/en/guides/prologue/why)*</sup>
+安全性設定可保護您的資料免受傷害、竊取和未經授權的使用。<sup>*^[這為什麼重要？](https://thenewoil.org/en/guides/prologue/why)*</sup>
 
-## Threat Intelligence Feeds <sup><sup>[1](https://github.com/nextdns/metadata/blob/6f9b6cd0670e7e31ad2ca716742088c2fc0616c2/security/threat-intelligence-feeds.json)</sup></sup>
+## 威脅情資來源 (Threat Intelligence Feeds) <sup><sup>[1](https://github.com/nextdns/metadata/blob/6f9b6cd0670e7e31ad2ca716742088c2fc0616c2/security/threat-intelligence-feeds.json)</sup></sup>
 > [!CAUTION]
-> Leave this feature enabled if you use something other than the [recommended blocklists](https://github.com/yokoffing/NextDNS-Config#privacy-lock) (see https://github.com/yokoffing/NextDNS-Config/issues/74 and https://github.com/yokoffing/NextDNS-Config/issues/86).
+> 如果您使用的是[推薦阻擋清單](https://github.com/yokoffing/NextDNS-Config#privacy-lock)以外的清單，請保持啟用此功能 (參見 https://github.com/yokoffing/NextDNS-Config/issues/74 和 https://github.com/yokoffing/NextDNS-Config/issues/86)。
 
-![Enabled](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/enabled.svg) Use Threat Intelligence Feeds
+![已啟用](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/enabled.svg) 使用威脅情資來源
 
-## AI-Driven Threat Detection <sup><sup>[1](https://x.com/NextDNS/status/1440291577713233925)</sup></sup>
+## AI 驅動的威脅偵測 (AI-Driven Threat Detection) <sup><sup>[1](https://x.com/NextDNS/status/1440291577713233925)</sup></sup>
 
-NextDNS labels this feature as [beta](https://www.vocabulary.com/dictionary/beta), although most users report it works well.
+NextDNS 將此功能標記為 [beta](https://www.vocabulary.com/dictionary/beta) (測試版)，儘管大多數使用者回報其運作良好。
 
-![Disabled](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/disabled.svg) Enable AI-Driven Threat Detection
+![已停用](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/disabled.svg) 啟用 AI 驅動的威脅偵測
 
-## Google Safe Browsing <sup><sup> [1](https://safebrowsing.google.com/safebrowsing/report_general/) [2](https://blog.cryptographyengineering.com/2019/10/13/dear-apple-safe-browsing-might-not-be-that-safe/) [3](https://the8-bit.com/apple-proxies-google-safe-browsing-privacy/) [4](https://github.com/brave/brave-browser/wiki/Deviations-from-Chromium-(features-we-disable-or-remove)#services-we-proxy-through-brave-servers) </sup></sup>
+## Google 安全瀏覽 (Google Safe Browsing) <sup><sup> [1](https://safebrowsing.google.com/safebrowsing/report_general/) [2](https://blog.cryptographyengineering.com/2019/10/13/dear-apple-safe-browsing-might-not-be-that-safe/) [3](https://the8-bit.com/apple-proxies-google-safe-browsing-privacy/) [4](https://github.com/brave/brave-browser/wiki/Deviations-from-Chromium-(features-we-disable-or-remove)#services-we-proxy-through-brave-servers) </sup></sup>
 > [!CAUTION]
-> Google Safe Browsing wasn't designed as a DNS-level blocker and may flag legitimate [CNAME domains](https://en.wikipedia.org/wiki/CNAME_record) as scams. NextDNS can also take months to remove a [false positive](https://csrc.nist.gov/glossary/term/false_positive).
+> Google 安全瀏覽並非設計為 DNS 層級的阻擋器，可能會將合法的 [CNAME 網域](https://en.wikipedia.org/wiki/CNAME_record) 標記為詐騙。NextDNS 可能需要數個月的時間才能移除[誤判](https://csrc.nist.gov/glossary/term/false_positive)。
 
-![Disabled](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/disabled.svg) Enable Google Safe Browsing
+![已停用](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/disabled.svg) 啟用 Google 安全瀏覽
 
-## Cryptojacking Protection <sup><sup>[1](https://github.com/nextdns/metadata/blob/6f9b6cd0670e7e31ad2ca716742088c2fc0616c2/security/cryptojacking.json)</sup></sup>
+## 挖礦劫持防護 (Cryptojacking Protection) <sup><sup>[1](https://github.com/nextdns/metadata/blob/6f9b6cd0670e7e31ad2ca716742088c2fc0616c2/security/cryptojacking.json)</sup></sup>
 > [!CAUTION]
-> Leave this feature enabled if you use something other than the [recommended blocklists](https://github.com/yokoffing/NextDNS-Config#privacy-lock) (see https://github.com/yokoffing/NextDNS-Config/issues/31).
+> 如果您使用的是[推薦阻擋清單](https://github.com/yokoffing/NextDNS-Config#privacy-lock)以外的清單，請保持啟用此功能 (參見 https://github.com/yokoffing/NextDNS-Config/issues/31)。
 
-![Disabled](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/disabled.svg) Enable Cryptojacking Protection
+![已停用](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/disabled.svg) 啟用挖礦劫持防護
 
-## DNS Rebinding Protection <sup><sup>[1](https://help.nextdns.io/t/35hmval/what-is-dns-rebinding-protection) [2](https://www.reddit.com/r/nextdns/comments/t0ne8r/does_dns_rebinding_protection_block_remote_access/?context=3)</sup></sup>
-![Enabled](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/enabled.svg)  Enable DNS Rebinding Protection
+## DNS 重綁定防護 (DNS Rebinding Protection) <sup><sup>[1](https://help.nextdns.io/t/35hmval/what-is-dns-rebinding-protection) [2](https://www.reddit.com/r/nextdns/comments/t0ne8r/does_dns_rebinding_protection_block_remote_access/?context=3)</sup></sup>
+![已啟用](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/enabled.svg)  啟用 DNS 重綁定防護
 
-## IDN Homograph Attacks Protection <sup><sup>[1](https://web.archive.org/web/20230325073817/https://blog.riotsecurityteam.com/idn-homograph-attacksprevention) [2](https://akamai.com/blog/security/watch-your-step-the-prevalence-of-idn-homograph-attacks)</sup></sup>
-![Enabled](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/enabled.svg) Enable Homograph Attacks Protection
+## IDN 同型異義字攻擊防護 (IDN Homograph Attacks Protection) <sup><sup>[1](https://web.archive.org/web/20230325073817/https://blog.riotsecurityteam.com/idn-homograph-attacksprevention) [2](https://akamai.com/blog/security/watch-your-step-the-prevalence-of-idn-homograph-attacks)</sup></sup>
+![已啟用](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/enabled.svg) 啟用同型異義字攻擊防護
 
-## Typosquatting Protection <sup><sup>[1](https://github.com/nextdns/metadata/blob/6f9b6cd0670e7e31ad2ca716742088c2fc0616c2/security/typosquatting/protected-domains)</sup></sup>
-![Enabled](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/enabled.svg) Enable Typosquatting Protection
-## Domain Generation Algorithms (DGAs) Protection
-![Enabled](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/enabled.svg) Enable DGA Protection
-## Block Newly Registered Domains (NRDs) <sup><sup>[1](https://boldgrid.com/instagram-influencer-accounts-are-being-hacked-phishing-attacks) </sup></sup>
+## 類似網域搶註防護 (Typosquatting Protection) <sup><sup>[1](https://github.com/nextdns/metadata/blob/6f9b6cd0670e7e31ad2ca716742088c2fc0616c2/security/typosquatting/protected-domains)</sup></sup>
+![已啟用](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/enabled.svg) 啟用類似網域搶註防護
+## 網域生成演算法 (DGA) 防護
+![已啟用](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/enabled.svg) 啟用 DGA 防護
+## 封鎖新註冊網域 (NRDs) <sup><sup>[1](https://boldgrid.com/instagram-influencer-accounts-are-being-hacked-phishing-attacks) </sup></sup>
 > [!WARNING]
-> Blocking NRDs may cause [false positives](https://csrc.nist.gov/glossary/term/false_positive) [occasionally](https://www.reddit.com/r/InternetIsBeautiful/comments/w2wdro/comment/iguvg8y/?context=3). Be selective when adding NRDs to your allowlist; and, if you do, **NEVER** give [sensitive information](https://egnyte.com/guides/governance/sensitive-information) to a NRD. *If you plan to [set-and-forget](https://glosbe.com/en/en/set-and-forget) your configuration, disable this setting.*
+> 封鎖 NRDs [偶爾](https://www.reddit.com/r/InternetIsBeautiful/comments/w2wdro/comment/iguvg8y/?context=3)可能會導致[誤判](https://csrc.nist.gov/glossary/term/false_positive)。將 NRD 加入允許清單時請謹慎；如果不確定，**切勿**將[敏感資訊](https://egnyte.com/guides/governance/sensitive-information)提供給 NRD。*如果您打算採取「[一勞永逸](https://glosbe.com/en/en/set-and-forget)」的設定方式，請停用此設定。*
 
-![Enabled](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/enabled.svg) Block Newly Registered Domains (NRDs)
+![已啟用](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/enabled.svg) 封鎖新註冊網域 (NRDs)
 
-## Block Dynamic DNS Hostnames <sup><sup>[1](https://github.com/nextdns/ddns-domains/blob/main/suffixes) [2](https://x.com/NextDNS/status/1541740963760144386) </sup></sup>
+## 封鎖動態 DNS 主機名稱 (Dynamic DNS Hostnames) <sup><sup>[1](https://github.com/nextdns/ddns-domains/blob/main/suffixes) [2](https://x.com/NextDNS/status/1541740963760144386) </sup></sup>
 > [!TIP]
-> Dynamic DNS (DDNS) services can still access their own website and update API when you use this setting.
+> 使用此設定時，動態 DNS (DDNS) 服務仍然可以存取其自己的網站並更新 API。
 
-![Enabled](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/enabled.svg) Enable Block Dynamic DNS Hostnames
+![已啟用](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/enabled.svg) 啟用封鎖動態 DNS 主機名稱
 
-## Block Parked Domains <sup><sup>[1](https://github.com/nextdns/metadata/blob/6f9b6cd0670e7e31ad2ca716742088c2fc0616c2/security/parked-domains-cname)</sup></sup>
-![Enabled](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/enabled.svg) Block Parked Domains
-## Block Top-Level Domains (TLDs) <sup><sup>[1](https://webtribunal.net/blog/tld-statistics/) [2](https://www.spamhaus.org/reputation-statistics/cctlds/domains/) [3](https://bleepingcomputer.com/news/security/verified-twitter-accounts-hacked-to-send-fake-suspension-notices/) [4](https://github.com/DandelionSprout/adfilt/blob/master/Dandelion%20Sprout's%20Anti-Malware%20List.txt) [5](https://github.com/DandelionSprout/adfilt/issues/659#issuecomment-1284845803) </sup></sup>
+## 封鎖停放網域 (Parked Domains) <sup><sup>[1](https://github.com/nextdns/metadata/blob/6f9b6cd0670e7e31ad2ca716742088c2fc0616c2/security/parked-domains-cname)</sup></sup>
+![已啟用](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/enabled.svg) 封鎖停放網域
+## 封鎖頂級網域 (TLDs) <sup><sup>[1](https://webtribunal.net/blog/tld-statistics/) [2](https://www.spamhaus.org/reputation-statistics/cctlds/domains/) [3](https://bleepingcomputer.com/news/security/verified-twitter-accounts-hacked-to-send-fake-suspension-notices/) [4](https://github.com/DandelionSprout/adfilt/blob/master/Dandelion%20Sprout's%20Anti-Malware%20List.txt) [5](https://github.com/DandelionSprout/adfilt/issues/659#issuecomment-1284845803) </sup></sup>
 
 > [!IMPORTANT]
-> Blocking [TLDs](https://www.geeksforgeeks.org/components-of-a-url) risks blocking legitimate sites along with malicious ones, since this feature stops both site navigations and subrequests. However, the entries below should allow for everyday browsing while offering protection against commonly abused TLDs.
+> 封鎖 [TLDs](https://www.geeksforgeeks.org/components-of-a-url) 會有同時封鎖惡意網站與合法網站的風險，因為此功能會阻止網站瀏覽和子請求。不過，以下列出的項目應該能在提供對常用濫用 TLD 的防護同時，允許日常的瀏覽行為。
 
-<details><summary>Click me to view TLDs</summary>
+<details><summary>點擊此處查看 TLDs</summary>
 
 ```
 .autos
@@ -98,54 +98,54 @@ NextDNS labels this feature as [beta](https://www.vocabulary.com/dictionary/beta
 
 </details>
 
-You can find additional entries on [Most Abused TLDs](https://github.com/hagezi/dns-blocklists?tab=readme-ov-file#tlds), but you may need to [allowlist](https://github.com/yokoffing/NextDNS-Config#allowlist-white_check_mark) sites on occasion. *If you plan to [set-and-forget](https://glosbe.com/en/en/set-and-forget) your configuration, skip this step.*
+您可以在 [受濫用最多的 TLDs](https://github.com/hagezi/dns-blocklists?tab=readme-ov-file#tlds) 找到更多項目，但您可能偶爾需要將網站加入[允許清單](https://github.com/yokoffing/NextDNS-Config#allowlist-white_check_mark)。*如果您打算採取「[一勞永逸](https://glosbe.com/en/en/set-and-forget)」的設定方式，請跳過此步驟。*
 
-## Block Child Sexual Abuse Material
-![Enabled](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/enabled.svg) Block Child Sexual Abuse Material
+## 封鎖兒童性虐待內容 (CSAM)
+![已啟用](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/enabled.svg) 封鎖兒童性虐待內容
 
 ***
 
-# Privacy :lock:
-Privacy features limit the amount of data companies can collect about you.
+# 隱私權 :lock:
+隱私權功能限制公司可以收集關於您的資料量。
 
-Because privacy is a [spectrum](https://blog.thenewoil.org/the-privacy-myth-binary-vs-spectrum), what you need varies on your [threat model](https://thenewoil.org/en/guides/prologue/threat-model/), interest, and skillset.<sup>^[*why should I care? I have nothing to hide*](https://medium.com/@FabioAEsteves/i-have-nothing-to-hide-why-should-i-care-about-my-privacy-f488281b8f1d)</sup>
+因為隱私是一個[光譜](https://blog.thenewoil.org/the-privacy-myth-binary-vs-spectrum)，您的需求取決於您的[威脅模型](https://thenewoil.org/en/guides/prologue/threat-model/)、興趣和技能組合。<sup>^[*我為什麼要在乎？我又沒做虧心事*](https://medium.com/@FabioAEsteves/i-have-nothing-to-hide-why-should-i-care-about-my-privacy-f488281b8f1d)</sup>
 
-## Blocklists <sup><sup>[1](https://github.com/nextdns/blocklists/tree/main/blocklists)</sup></sup>
+## 阻擋清單 (Blocklists) <sup><sup>[1](https://github.com/nextdns/blocklists/tree/main/blocklists)</sup></sup>
 
-Blocklists filter out ads, [trackers](https://www.freecodecamp.org/news/what-you-should-know-about-web-tracking-and-how-it-affects-your-online-privacy-42935355525/), and malicious sites. Hundreds of volunteers contribute to these lists in the [open-source](https://opensource.com/resources/what-open-source) community, and they are the undercover heroes who make blocking ads at scale possible.
+阻擋清單可過濾廣告、[追蹤器](https://www.freecodecamp.org/news/what-you-should-know-about-web-tracking-and-how-it-affects-your-online-privacy-42935355525/)和惡意網站。[開源](https://opensource.com/resources/what-open-source)社群中有數百名志願者為這些清單做出貢獻，他們是使大規模阻擋廣告成為可能的幕後英雄。
 
-We recommend you **remove** the [NextDNS Ads & Trackers Blocklist](https://github.com/nextdns/blocklists/blob/main/blocklists/nextdns-recommended.json) and **add** the [minimum](https://www.reddit.com/r/nextdns/comments/1048xeg/do_you_use_nextdns_blocklist_as_the_primary/j33wnz2/?context=3) number of useful lists.
+我們建議您**移除** [NextDNS Ads & Trackers Blocklist](https://github.com/nextdns/blocklists/blob/main/blocklists/nextdns-recommended.json) 並**新增**[最少](https://www.reddit.com/r/nextdns/comments/1048xeg/do_you_use_nextdns_blocklist_as_the_primary/j33wnz2/?context=3)數量且有用的清單。
 
-### Which blocklist should I use?
+### 我應該使用哪個阻擋清單？
 
-A great question to ask is: "How much do I want to deal with the inconveniences of [false positives](https://csrc.nist.gov/glossary/term/false_positive)?"
+一個很好的問題是：「我想在多大程度上處理[誤判](https://csrc.nist.gov/glossary/term/false_positive)帶來的不便？」
 
-Here are the suggested blocklists, based on past issues and observations:
+以下是根據過去的問題和觀察建議的阻擋清單：
 
-|     **Blocklists**   |                              **Rationale**                                             |
+|     **阻擋清單**   |                              **理由**                                             |
 |:--------------------:|:--------------------------------------------------------------------------------------:|
-| HaGeZi - <br>Multi **NORMAL**<sup>[1](https://github.com/hagezi/dns-blocklists/blob/main/statistics.md#multi)</sup> <br>+ <br>OISD<sup>[2](https://www.reddit.com/r/nextdns/comments/1ia9bz0/comment/mdy61v9/)</sup> | Block tracker, ad, and badware requests without issues ([set-and-forget](https://glosbe.com/en/en/set-and-forget)). |
-| HaGeZi - <br>Multi **PRO**<sup>[3](https://github.com/hagezi/dns-blocklists/blob/main/statistics.md#pro)</sup> | Block more requests, usually without issues (recommended). |
-| HaGeZi - <br>Multi **PRO++**<sup>[4](https://github.com/hagezi/dns-blocklists/blob/main/statistics.md#proplus)</sup> | Block more requests at the risk of site breakage. <br> [Report](https://github.com/hagezi/dns-blocklists/issues/new/choose) occasional site and app issues. |
+| HaGeZi - <br>Multi **NORMAL**<sup>[1](https://github.com/hagezi/dns-blocklists/blob/main/statistics.md#multi)</sup> <br>+ <br>OISD<sup>[2](https://www.reddit.com/r/nextdns/comments/1ia9bz0/comment/mdy61v9/)</sup> | 阻擋追蹤器、廣告和惡意軟體請求，且沒有問題（[一勞永逸](https://glosbe.com/en/en/set-and-forget)）。 |
+| HaGeZi - <br>Multi **PRO**<sup>[3](https://github.com/hagezi/dns-blocklists/blob/main/statistics.md#pro)</sup> | 阻擋更多請求，通常沒有問題（推薦）。 |
+| HaGeZi - <br>Multi **PRO++**<sup>[4](https://github.com/hagezi/dns-blocklists/blob/main/statistics.md#proplus)</sup> | 阻擋更多請求，但有網站損壞的風險。<br> 需[回報](https://github.com/hagezi/dns-blocklists/issues/new/choose)偶發的網站和應用程式問題。 |
 
 > [!TIP]
-> Use different blocklists on separate DNS profiles (e.g., NORMAL for your router and PRO++ for your web browser).
+> 在不同的 DNS 設定檔上使用不同的阻擋清單（例如：路由器使用 NORMAL，網頁瀏覽器使用 PRO++）。
 
-You can also check out Hagezi's own [recommendations](https://github.com/hagezi/dns-blocklists/wiki/FAQ#whatshouldiuse).
+您也可以查看 Hagezi 自己的[建議](https://github.com/hagezi/dns-blocklists/wiki/FAQ#whatshouldiuse)。
 
-### Why Hagezi?
-[Hagezi](https://github.com/hagezi/dns-blocklists) block ads, trackers, native device trackers, and badware. He maintains a sensible allowlist, handles false positives quickly, and communicates known issues to blocklists maintainers. Hagezi builds his blocklists using many of the same original [sources](https://github.com/hagezi/dns-blocklists/blob/main/sources.md) that feed into other popular lists like OISD and 1Hosts. He also adds his own unique sources, rather than just repackaging other combined blocklists.
+### 為什麼選擇 Hagezi？
+[Hagezi](https://github.com/hagezi/dns-blocklists) 阻擋廣告、追蹤器、原生裝置追蹤器和惡意軟體。他維護一個合理的允許清單，能快速處理誤判，並將已知的問題與阻擋清單維護者溝通。Hagezi 使用許多與其他熱門清單（如 OISD 和 1Hosts）相同的原始[來源](https://github.com/hagezi/dns-blocklists/blob/main/sources.md)來建立他的阻擋清單。他還加入了自己獨特的來源，而不僅僅是重新打包其他組合清單。
 
-You may also wonder why other lists are not utilized. This is because many list maintainers:
-* do not remove [false positives](https://csrc.nist.gov/glossary/term/false_positive) and/or are no longer active <sup>[1](https://github.com/lightswitch05/hosts/issues/356) [2](https://github.com/EnergizedProtection/block/issues/916)</sup>
-* already [aggregate](https://www.reddit.com/r/nextdns/comments/ys3s1s/confused_about_blocklists/ivxdcd2/?context=3) common blocklists into their own list (Easylist/Fanboy, AdGuard, Steven Black, etc.) <sup>[1](https://github.com/badmojr/1Hosts/blob/master/-data/lists/assets.txt) [2](https://oisd.nl/includedlists/big/0) [3](https://github.com/jerryn70/GoodbyeAds/blob/master/Docs/Sources.md) [4](https://github.com/hagezi/dns-blocklists/blob/main/sources.md#sources) </sup>
-* offer no meaningful additional coverage when compared with the chart combinations above
+您可能也想知道為什麼不使用其他清單。這是因為許多清單維護者：
+* 不移除[誤判](https://csrc.nist.gov/glossary/term/false_positive)和/或不再活躍 <sup>[1](https://github.com/lightswitch05/hosts/issues/356) [2](https://github.com/EnergizedProtection/block/issues/916)</sup>
+* 已經將常見的阻擋清單[聚合](https://www.reddit.com/r/nextdns/comments/ys3s1s/confused_about_blocklists/ivxdcd2/?context=3)到他們自己的清單中（Easylist/Fanboy, AdGuard, Steven Black 等） <sup>[1](https://github.com/badmojr/1Hosts/blob/master/-data/lists/assets.txt) [2](https://oisd.nl/includedlists/big/0) [3](https://github.com/jerryn70/GoodbyeAds/blob/master/Docs/Sources.md) [4](https://github.com/hagezi/dns-blocklists/blob/main/sources.md#sources) </sup>
+* 與上述表格組合相比，沒有提供有意義的額外覆蓋範圍
 
-## Native Tracking Protection <sup><sup>[1](https://github.com/nextdns/native-tracking-domains/tree/main/domains)</sup></sup>
+## 原生追蹤防護 (Native Tracking Protection) <sup><sup>[1](https://github.com/nextdns/native-tracking-domains/tree/main/domains)</sup></sup>
 > [!CAUTION]
-> Leave this feature enabled if you use something other than the [recommended blocklists](https://github.com/yokoffing/NextDNS-Config#privacy-lock) (see https://github.com/yokoffing/NextDNS-Config/issues/76).
+> 如果您使用的是[推薦阻擋清單](https://github.com/yokoffing/NextDNS-Config#privacy-lock)以外的清單，請保持啟用此功能 (參見 https://github.com/yokoffing/NextDNS-Config/issues/76)。
 
-If you decide to use this feature, then add all the device brands that you use.
+如果您決定使用此功能，請新增您使用的所有裝置品牌。
 
 <details>
 
@@ -160,52 +160,52 @@ If you decide to use this feature, then add all the device brands that you use.
 
 </details>
 
-## Block Disguised Third-Party Trackers <sup><sup>[1](https://github.com/nextdns/cname-cloaking-blocklist/blob/master/domains) [2](https://www.reddit.com/r/nextdns/comments/10nenu3/disguised_trackers_are_blocked_regardless_of) [3](https://medium.com/nextdns/cname-cloaking-the-dangerous-disguise-of-third-party-trackers-195205dc522a) [4](https://arxiv.org/pdf/2102.09301.pdf) [5](https://tma.ifip.org/2020/wp-content/uploads/sites/9/2020/06/tma2020-camera-paper66.pdf) </sup></sup>
-![Disabled](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/disabled.svg) Block Disguised Third-Party Trackers
+## 封鎖偽裝的第三方追蹤器 (Block Disguised Third-Party Trackers) <sup><sup>[1](https://github.com/nextdns/cname-cloaking-blocklist/blob/master/domains) [2](https://www.reddit.com/r/nextdns/comments/10nenu3/disguised_trackers_are_blocked_regardless_of) [3](https://medium.com/nextdns/cname-cloaking-the-dangerous-disguise-of-third-party-trackers-195205dc522a) [4](https://arxiv.org/pdf/2102.09301.pdf) [5](https://tma.ifip.org/2020/wp-content/uploads/sites/9/2020/06/tma2020-camera-paper66.pdf) </sup></sup>
+![已停用](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/disabled.svg) 封鎖偽裝的第三方追蹤器
 
-The domain [list](https://github.com/nextdns/cname-cloaking-blocklist/blob/master/domains) hasn't been updated in years, and it blocks some referral domains that **Allow Affiliate & Tracking Links** doesn't unblock. NextDNS blocks [CNAME records](https://en.wikipedia.org/wiki/CNAME_record) by default, even with this list disabled.
+該網域[清單](https://github.com/nextdns/cname-cloaking-blocklist/blob/master/domains)已經多年未更新，並且它會封鎖一些 **允許聯盟行銷與追蹤連結** 無法解除封鎖的推薦連結網域。NextDNS 預設會封鎖 [CNAME 記錄](https://en.wikipedia.org/wiki/CNAME_record)，即使停用此清單也是如此。
 
-## Allow Affiliate & Tracking Links <sup><sup>[1](https://github.com/nextdns/click-tracking-domains) [2](https://x.com/NextDNS/status/1539229377560461312) </sup></sup>
+## 允許聯盟行銷與追蹤連結 (Allow Affiliate & Tracking Links) <sup><sup>[1](https://github.com/nextdns/click-tracking-domains) [2](https://x.com/NextDNS/status/1539229377560461312) </sup></sup>
 > [!TIP]
-> Your IP address will automatically be hidden (via [TCP](https://educba.com/what-is-tcp-ip) [proxying](https://en.wikipedia.org/wiki/Proxy_server#/media/File:Proxy_concept_en.svg)) to preserve your privacy.<p>
+> 您的 IP 位址將自動隱藏（透過 [TCP](https://educba.com/what-is-tcp-ip) [代理](https://en.wikipedia.org/wiki/Proxy_server#/media/File:Proxy_concept_en.svg)）以保護您的隱私。<p>
 
 > [!WARNING]
-> Disabling this setting prevents some email links from opening properly.
+> 停用此設定會導致某些電子郵件連結無法正確開啟。
 
-![Enabled](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/enabled.svg) Allow Affiliate & Tracking Links
+![已啟用](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/enabled.svg) 允許聯盟行銷與追蹤連結
 
 ***
 
-# Parental Control :family_man_woman_boy:
-## YouTube Restricted Mode
-![Disabled](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/disabled.svg) Enforce YouTube Restricted Mode
-## Block Bypass Methods <sup><sup>[1](https://github.com/nextdns/dns-bypass-methods)</sup></sup>
-Block tools that can bypass NextDNS filtering, such as VPNs, proxies, Tor software, and encrypted DNS services.
+# 家長監護 :family_man_woman_boy:
+## YouTube 嚴格篩選模式
+![已停用](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/disabled.svg) 強制 YouTube 嚴格篩選模式
+## 封鎖繞過方法 (Block Bypass Methods) <sup><sup>[1](https://github.com/nextdns/dns-bypass-methods)</sup></sup>
+封鎖可用於繞過 NextDNS 過濾的工具，例如 VPN、代理伺服器、Tor 軟體和加密 DNS 服務。
 > [!CAUTION]
-> Enabling this setting causes unintended behavior.
+> 啟用此設定會導致意想不到的行為。
 
-![Disabled](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/disabled.svg) Block Bypass Methods
+![已停用](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/disabled.svg) 封鎖繞過方法
 
 ***
 
-# Denylist :no_entry:
+# 拒絕清單 (Denylist) :no_entry:
 
-Denylist entries are always blocked. These entries may further harden some profiles while not interfering with everyday browsing.
+拒絕清單項目將永遠被封鎖。這些項目可以進一步強化某些設定檔，同時不干擾日常瀏覽。
 
-### iCloud Private Relay
+### iCloud 私密轉送 (Private Relay)
 
-[iCloud Private Relay](https://support.apple.com/en-us/102602) can override DNS settings on devices, preventing NextDNS from protecting them.
+[iCloud 私密轉送](https://support.apple.com/zh-tw/102602) 可以覆蓋裝置上的 DNS 設定，導致 NextDNS 無法提供保護。
 
-Some DoH providers block this feature automatically.
+某些 DoH 供應商會自動封鎖此功能。
 
 	mask.icloud.com
 	mask-h2.icloud.com
 	mask-canary.icloud.com
 
 > [!CAUTION]
-> The domains below may prevent external images from loading in Apple mail clients. You don't need these unless you're running a very aggressive profile.
+> 下方的網域可能會導致 Apple 郵件用戶端無法載入外部圖片。除非您執行非常積極的設定檔，否則不需要這些。
 
-And possibly:
+以及可能的：
 
   	apple-relay.cloudflare.com
     apple-relay.fastly-edge.com
@@ -216,17 +216,17 @@ And possibly:
 
 ***
 
-# Allowlist :white_check_mark:
+# 允許清單 (Allowlist) :white_check_mark:
 
-Allowlist entries always resolve. These entries may be needed for aggressive DNS profiles to relax their rules.
+允許清單項目將永遠解析。積極的 DNS 設定檔可能需要這些項目來放寬規則。
 
 ### NextDNS
 
-Allow NextDNS itself in case a filterlist goes [haywire](https://help.nextdns.io/t/m1hs207/energized-ultimate-lists-blocking-nextdns) and blocks your access.
+允許 NextDNS 本身，以防過濾清單[出錯](https://help.nextdns.io/t/m1hs207/energized-ultimate-lists-blocking-nextdns)並封鎖您的存取。
 
 	nextdns.io
 
-<details><summary>Click here to view more entries</summary>
+<details><summary>點擊此處查看更多項目</summary>
 
 ### Facebook / Instagram <sup><sup>[1](https://github.com/jerryn70/GoodbyeAds/issues/309)</sup></sup> 
 
@@ -235,7 +235,7 @@ Allow NextDNS itself in case a filterlist goes [haywire](https://help.nextdns.io
 	i.instagram.com
 	b-graph.facebook.com
 
-If you're still having issues, try [these](https://raw.githubusercontent.com/hagezi/dns-blocklists/main/share/facebook.txt):
+如果您仍然遇到問題，請嘗試[這些](https://raw.githubusercontent.com/hagezi/dns-blocklists/main/share/facebook.txt)：
 	
 	connect.facebook.com
 	connect.facebook.net
@@ -243,13 +243,13 @@ If you're still having issues, try [these](https://raw.githubusercontent.com/hag
 	z-m-graph.facebook.com
 	graph-fallback.instagram.com
 
-### Apple device updates <sup><sup>[1](https://github.com/badmojr/1Hosts/issues/536) [2](https://github.com/badmojr/1Hosts/issues/562) [3](https://github.com/nextdns/metadata/pull/1132#issuecomment-1331733770)
+### Apple 裝置更新 <sup><sup>[1](https://github.com/badmojr/1Hosts/issues/536) [2](https://github.com/badmojr/1Hosts/issues/562) [3](https://github.com/nextdns/metadata/pull/1132#issuecomment-1331733770)
 
-A [known tracking domain](https://gizmodo.com/apple-iphone-analytics-tracking-even-when-off-app-store-1849757558), but it's needed for device updates.
+一個[已知的追蹤網域](https://gizmodo.com/apple-iphone-analytics-tracking-even-when-off-app-store-1849757558)，但它是裝置更新所需的。
 
 	xp.apple.com
 
-### Apple iMessage GIFs <sup><sup>[1](https://github.com/badmojr/1Hosts/issues/560)</sup></sup> / Spotlight Search <sup><sup>[2](https://github.com/badmojr/1Hosts/issues/562)</sup></sup> 
+### Apple iMessage GIFs <sup><sup>[1](https://github.com/badmojr/1Hosts/issues/560)</sup></sup> / Spotlight 搜尋 <sup><sup>[2](https://github.com/badmojr/1Hosts/issues/562)</sup></sup> 
 
 	smoot.apple.com
 
@@ -260,24 +260,24 @@ A [known tracking domain](https://gizmodo.com/apple-iphone-analytics-tracking-ev
 
 ### Windows
 
-This [request](https://oisd.nl/excludes.php?w=settings-win.data.microsoft.com) is blocked when using NextDNS' [Native Tracking](https://github.com/yokoffing/NextDNS-Config#native-tracking-protection-1) list (Windows)
+使用 NextDNS 的 [原生追蹤](https://github.com/yokoffing/NextDNS-Config#native-tracking-protection-1) 清單 (Windows) 時，此[請求](https://oisd.nl/excludes.php?w=settings-win.data.microsoft.com)會被封鎖
 
 	settings-win.data.microsoft.com
 
-### Xbox achievements
+### Xbox 成就
 
 	v10.events.data.microsoft.com
 	v20.events.data.microsoft.com
 
-### Xiaomi device updates
+### Xiaomi 裝置更新
 
 	update.intl.miui.com
 
-### Xiaomi USB debugging (Security settings)
+### Xiaomi USB 偵錯 (安全性設定)
 
 	srv.sec.intl.miui.com
 
-### Google Nest usage metrics <sup><sup>[1](https://www.reddit.com/r/nextdns/comments/yzvnuw/nest_usage_metrics_being_blocked)</sup></sup> 
+### Google Nest 使用量指標 <sup><sup>[1](https://www.reddit.com/r/nextdns/comments/yzvnuw/nest_usage_metrics_being_blocked)</sup></sup> 
 
 	logsink.devices.nest.com
 
@@ -287,7 +287,7 @@ This [request](https://oisd.nl/excludes.php?w=settings-win.data.microsoft.com) i
 	guce.oath.com
 	pr.comet.yahoo.com
 
-### [Spectrum](https://spectrum.net) login <sup><sup>[1](https://github.com/badmojr/1Hosts/issues/640)</sup></sup>
+### [Spectrum](https://spectrum.net) 登入 <sup><sup>[1](https://github.com/badmojr/1Hosts/issues/640)</sup></sup>
 
 	pov.spectrum.net
 
@@ -297,7 +297,7 @@ This [request](https://oisd.nl/excludes.php?w=settings-win.data.microsoft.com) i
 	us04logfiles.zoom.us
 	us04zpns.zoom.us
 
-### YouTube history
+### YouTube 觀看紀錄
 
 	s.youtube.com
 
@@ -305,16 +305,16 @@ This [request](https://oisd.nl/excludes.php?w=settings-win.data.microsoft.com) i
 
 	ads-fa-darwin.hulustream.com
 
-### Epic Games Launcher <sup><sup>[1](https://github.com/badmojr/1Hosts/issues/643)</sup></sup>
+### Epic Games 啟動器 <sup><sup>[1](https://github.com/badmojr/1Hosts/issues/643)</sup></sup>
 
 	eulatracking-public-service-prod06.ol.epicgames.com
 
-### NVIDIA Gefore Experience <sup><sup>[1](https://github.com/badmojr/1Hosts/issues/650)</sup></sup>
+### NVIDIA GeForce Experience <sup><sup>[1](https://github.com/badmojr/1Hosts/issues/650)</sup></sup>
 	
 	gfe.nvidia.com
 	nvgs.nvidia.cn
 
-### Chick-Fil-A App <sup><sup>[1](https://www.reddit.com/r/nextdns/comments/zaqio0/comment/iz7v9di/?utm_source=share&utm_medium=web2x&context=3)</sup></sup>
+### Chick-Fil-A 應用程式 <sup><sup>[1](https://www.reddit.com/r/nextdns/comments/zaqio0/comment/iz7v9di/?utm_source=share&utm_medium=web2x&context=3)</sup></sup>
 
 	tmetrix.my.chick-fil-a.com
 
@@ -322,7 +322,7 @@ This [request](https://oisd.nl/excludes.php?w=settings-win.data.microsoft.com) i
 
 	js.media-lab.ai
 
-### [CBS](https://cbsnews.com/live) News livestream <sup><sup>[1](https://github.com/nextdns/metadata/issues/1030) [2](https://github.com/hagezi/dns-blocklists/issues/422)</sup></sup> 
+### [CBS](https://cbsnews.com/live) 新聞直播 <sup><sup>[1](https://github.com/nextdns/metadata/issues/1030) [2](https://github.com/hagezi/dns-blocklists/issues/422)</sup></sup> 
 
 	doppler-config.cbsivideo.com
 	production-cmp.isgprivacy.cbsi.com
@@ -331,14 +331,14 @@ This [request](https://oisd.nl/excludes.php?w=settings-win.data.microsoft.com) i
 
 ### [Paramount+](https://www.paramountplus.com/)
 
-Paramount+ uses certain domains to display ads. These domains must be accessible to allow Paramount+ content to load (even for viewers with ad-free plans).
+Paramount+ 使用某些網域來顯示廣告。必須允許存取這些網域才能讓 Paramount+ 內容載入（即使是對於無廣告方案的觀眾也是如此）。
 
-:warning: However, because many sites use these domains for ads, allowing them could result in more ads being shown on other sites you visit.
+:warning: 然而，因為許多網站都使用這些網域來投放廣告，允許它們可能會導致您造訪的其他網站顯示更多廣告。
 
     imasdk.googleapis.com
     pubads.g.doubleclick.net
 
-Users have [reported](https://www.reddit.com/r/nextdns/comments/v84ag6/paramount_plus/) that the following domains also may need to be allowed:
+使用者[回報](https://www.reddit.com/r/nextdns/comments/v84ag6/paramount_plus/)以下網域可能也需要允許：
 
     cbsaavideo.com
     cbsi.com
@@ -348,14 +348,14 @@ Users have [reported](https://www.reddit.com/r/nextdns/comments/v84ag6/paramount
     dns-clientinfo.cbsivideo.com
     partnerad.l.doubleclick.net
     saa.cbsi.com
-    summerhamster.com (yes, really)
+    summerhamster.com (對，真的)
     udm.scorecardresearch.com
 
-### [FiveThirtyEight](https://fivethirtyeight.com) videos / [National Geographic](https://nationalgeographic.com) website <sup><sup>[1](https://github.com/notracking/hosts-blocklists/issues/788)</sup></sup>
+### [FiveThirtyEight](https://fivethirtyeight.com) 影片 / [國家地理 (National Geographic)](https://nationalgeographic.com) 網站 <sup><sup>[1](https://github.com/notracking/hosts-blocklists/issues/788)</sup></sup>
 
 	dcf.espn.com
 
-### [Men's Health](https://menshealth.com/nutrition/a40868905/chris-hemsworth-chicken-pasta-bake-recipe-centr) videos <sup><sup>[1](https://github.com/badmojr/1Hosts/issues/651)</sup></sup>
+### [Men's Health](https://menshealth.com/nutrition/a40868905/chris-hemsworth-chicken-pasta-bake-recipe-centr) 影片 <sup><sup>[1](https://github.com/badmojr/1Hosts/issues/651)</sup></sup>
 
 	glimmer.hearstapps.com
 
@@ -363,115 +363,115 @@ Users have [reported](https://www.reddit.com/r/nextdns/comments/v84ag6/paramount
 
 ***
 
-# Settings :gear:
+# 設定 :gear:
 
-## Logs
-**Storage location** → Switzerland
+## 紀錄 (Logs)
+**儲存位置** → 瑞士 (Switzerland)
 
-## Block Page
+## 封鎖頁面 (Block Page)
 > [!CAUTION]
-> Enabling this setting may cause site navigation issues if the [NextDNS Root CA](https://help.nextdns.io/t/g9hmv0a/how-to-install-and-trust-nextdns-root-ca) is not on your devices. Also, this setting breaks [Paypal 2FA](https://github.com/hagezi/dns-blocklists/issues/2335), [iCloud Private Relay](https://help.nextdns.io/t/g9hdska), [Microsoft Teams](https://www.reddit.com/r/nextdns/comments/176u2x6/comment/k4pp3ti/?context=3), [Yahoo! Mail](https://github.com/hagezi/dns-blocklists/issues/269#issuecomment-1409644343), the NAVER app, [Hoyolab app](https://help.nextdns.io/t/g9yxqcd/nextdns-blocking-hoyolab), and possibly [banking apps](https://help.nextdns.io/t/83yxjgx/most-common-problem-with-nextdns).
+> 啟用此設定可能會導致網站瀏覽問題，如果您的裝置上未安裝 [NextDNS Root CA](https://help.nextdns.io/t/g9hmv0a/how-to-install-and-trust-nextdns-root-ca)。此外，此設定會破壞 [Paypal 2FA](https://github.com/hagezi/dns-blocklists/issues/2335)、[iCloud 私密轉送](https://help.nextdns.io/t/g9hdska)、[Microsoft Teams](https://www.reddit.com/r/nextdns/comments/176u2x6/comment/k4pp3ti/?context=3)、[Yahoo! Mail](https://github.com/hagezi/dns-blocklists/issues/269#issuecomment-1409644343)、NAVER 應用程式、[Hoyolab 應用程式](https://help.nextdns.io/t/g9yxqcd/nextdns-blocking-hoyolab)，以及可能的[銀行應用程式](https://help.nextdns.io/t/83yxjgx/most-common-problem-with-nextdns)。
 
-![Disabled](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/disabled.svg) Enable Block Page
+![已停用](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/disabled.svg) 啟用封鎖頁面
 
-## Anonymized EDNS Client Subnet <sup><sup>[1](https://help.nextdns.io/t/m1hmv04/what-is-edns-client-subnet-ecs) </sup></sup>
-![Enabled](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/enabled.svg) Enable Anonymized EDNS Client Subnet
-## Cache Boost <sup><sup>[1](https://www.reddit.com/r/nextdns/comments/girmcf/new_setting_cache_boost/)</sup></sup>
-![Enabled](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/enabled.svg) Enable Cache Boost
+## 匿名化 EDNS 用戶端子網段 (Anonymized EDNS Client Subnet) <sup><sup>[1](https://help.nextdns.io/t/m1hmv04/what-is-edns-client-subnet-ecs) </sup></sup>
+![已啟用](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/enabled.svg) 啟用匿名化 EDNS 用戶端子網段
+## 快取加速 (Cache Boost) <sup><sup>[1](https://www.reddit.com/r/nextdns/comments/girmcf/new_setting_cache_boost/)</sup></sup>
+![已啟用](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/enabled.svg) 啟用快取加速
 
-## CNAME Flattening <sup><sup>[1](https://medium.com/nextdns/nextdns-added-cname-uncloaking-support-becomes-the-first-cross-platform-solution-to-the-problem-e3f437f84342) [2](https://developers.cloudflare.com/dns/cname-flattening/) [3](https://advancedweb.hu/what-is-cname-flattening-and-how-it-helps-redirecting-the-apex-domain) </sup></sup>
+## CNAME 扁平化 (CNAME Flattening) <sup><sup>[1](https://medium.com/nextdns/nextdns-added-cname-uncloaking-support-becomes-the-first-cross-platform-solution-to-the-problem-e3f437f84342) [2](https://developers.cloudflare.com/dns/cname-flattening/) [3](https://advancedweb.hu/what-is-cname-flattening-and-how-it-helps-redirecting-the-apex-domain) </sup></sup>
 > [!WARNING]
-> Enabling this feature may break compatibility with [Yahoo! Mail](https://github.com/hagezi/dns-blocklists/issues/269#issuecomment-1409644343) and cause issues with certain blocklists.
+> 啟用此功能可能會破壞與 [Yahoo! Mail](https://github.com/hagezi/dns-blocklists/issues/269#issuecomment-1409644343) 的相容性，並導致某些阻擋清單出現問題。
 
-![Disabled](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/disabled.svg) Enable CNAME Flattening
+![已停用](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/disabled.svg) 啟用 CNAME 扁平化
 
-## Bypass Age Verification
-![Enabled](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/enabled.svg) Bypass Age Verification
+## 繞過年齡驗證 (Bypass Age Verification)
+![已啟用](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/enabled.svg) 繞過年齡驗證
 
 ## Web3 <sup><sup> [1](https://x.com/NextDNS/status/1491034351391305731) [2](https://gabygoldberg.notion.site/f7050e62461143d49345e7b46eb5576b)</sup></sup>
-![Disabled](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/disabled.svg) Enable Web3
+![已停用](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/disabled.svg) 啟用 Web3
 <p>
-Leave disabled unless you use crypto-related stuff.
+除非您使用加密貨幣相關的東西，否則請保持停用。
 
 ***
-# FAQ :question:
+# 常見問題 (FAQ) :question:
 
-## How do I signup for NextDNS?
-Click [here](https://nextdns.io/?from=xujj63g5) to get started.
+## 我該如何註冊 NextDNS？
+點擊[此處](https://nextdns.io/?from=xujj63g5)開始。
 
-## Why am I still seeing ads?
-Not all ads can be blocked at the DNS level.<sup>[1](https://www.reddit.com/r/nextdns/comments/14nsfhv/comment/jq982bi/?context=3) [2](https://www.reddit.com/r/nextdns/comments/13urdda/ads_on_manga_sites/)</sup> You will need an [ad blocker](https://github.com/yokoffing/NextDNS-Config#i-need-a-browser-with-ad-blocking-which-one-should-i-choose) to block what's leftover.
+## 為什麼我仍然看到廣告？
+並非所有廣告都能在 DNS 層級被阻擋。<sup>[1](https://www.reddit.com/r/nextdns/comments/14nsfhv/comment/jq982bi/?context=3) [2](https://www.reddit.com/r/nextdns/comments/13urdda/ads_on_manga_sites/)</sup> 您需要一個[廣告阻擋器](https://github.com/yokoffing/NextDNS-Config#i-need-a-browser-with-ad-blocking-which-one-should-i-choose)來阻擋剩下的部分。
 
-This is because not all ads come from third-party domains; some ads come directly from the site you're visiting, like [YouTube](https://discourse.pi-hole.net/t/how-do-i-block-ads-on-youtube/253/2). DNS blockers stop the resolution of a domain, and content blockers filter page content. Click [here](https://github.com/yokoffing/NextDNS-Config/tree/main#i-need-a-browser-with-ad-blocking-which-one-should-i-choose) to easily install a lightweight ad blocker.
+這是因為並非所有廣告都來自第三方網域；有些廣告直接來自您造訪的網站，例如 [YouTube](https://discourse.pi-hole.net/t/how-do-i-block-ads-on-youtube/253/2)。DNS 阻擋器阻止網域的解析，而內容阻擋器過濾頁面內容。點擊[此處](https://github.com/yokoffing/NextDNS-Config/tree/main#i-need-a-browser-with-ad-blocking-which-one-should-i-choose)輕鬆安裝輕量級廣告阻擋器。
 
-## I need a browser with ad blocking. Which one should I choose?
-Choosing a browser is about as intimate as [choosing a starter Pokémon](https://www.youtube.com/watch?v=F_8htiBjTCY), so here's a few caveats:
-* The best browser on paper may not work well in real world usage.
-* Browsers are tools! Use a variety of browsers depending on what you need to do.
-* You should use various browsers (or browser profiles) for different areas of life (e.g., work, school, personal).
+## 我需要一個有廣告阻擋功能的瀏覽器。我該選擇哪一個？
+選擇瀏覽器就像[選擇初始寶可夢](https://www.youtube.com/watch?v=F_8htiBjTCY)一樣親密，所以這裡有一些注意事項：
+* 理論上最好的瀏覽器在實際使用中可能運作不佳。
+* 瀏覽器是工具！根據您的需求使用各種瀏覽器。
+* 您應該為生活的不同領域（例如：工作、學校、個人）使用各種瀏覽器（或瀏覽器設定檔）。
 
-We based the recommendations below on a combination of effectiveness, resource efficiency, features, and ease of use.
+我們基於有效性、資源效率、功能和易用性的組合，提出了以下建議。
 
-| OS | Browser | Content Blocker |
+| 作業系統 | 瀏覽器 | 內容阻擋器 |
 |---|---|---|
-| iOS | [Safari](https://www.privacyguides.org/en/mobile-browsers/#safari) | [wBlock](https://apps.apple.com/us/app/wblock/id6746388723) or [AdGuard](https://www.privacyguides.org/en/browser-extensions/?h=adguard#adguard) |
-| Android | [Brave](https://www.privacyguides.org/en/mobile-browsers/#brave) | Built-in blocker |
-| Windows <br> macOS <br> Linux | [Firefox](https://www.mozilla.org/en-US/firefox/new/) (with [Betterfox](https://github.com/yokoffing/Betterfox#betterfox)) <p><p> [Brave](https://www.privacyguides.org/en/desktop-browsers/#brave) | [uBlock Origin](https://addons.mozilla.org/blog/ublock-origin-everything-you-need-to-know-about-the-ad-blocker/) <p><p> Built-in blocker or [uBlock Origin](https://addons.mozilla.org/blog/ublock-origin-everything-you-need-to-know-about-the-ad-blocker/) |  |
+| iOS | [Safari](https://www.privacyguides.org/en/mobile-browsers/#safari) | [wBlock](https://apps.apple.com/us/app/wblock/id6746388723) 或 [AdGuard](https://www.privacyguides.org/en/browser-extensions/?h=adguard#adguard) |
+| Android | [Brave](https://www.privacyguides.org/en/mobile-browsers/#brave) | 內建阻擋器 |
+| Windows <br> macOS <br> Linux | [Firefox](https://www.mozilla.org/en-US/firefox/new/) (搭配 [Betterfox](https://github.com/yokoffing/Betterfox#betterfox)) <p><p> [Brave](https://www.privacyguides.org/en/desktop-browsers/#brave) | [uBlock Origin](https://addons.mozilla.org/blog/ublock-origin-everything-you-need-to-know-about-the-ad-blocker/) <p><p> 內建阻擋器或 [uBlock Origin](https://addons.mozilla.org/blog/ublock-origin-everything-you-need-to-know-about-the-ad-blocker/) |  |
 
-At the end of the day, if you're using [NextDNS](https://nextdns.io/?from=xujj63g5) + any browser with an ad blocker, you have more coverage than most people.
+歸根結底，如果您使用 [NextDNS](https://nextdns.io/?from=xujj63g5) + 任何帶有廣告阻擋器的瀏覽器，您的防護覆蓋範圍將超過大多數人。
 
-## Should I pay for NextDNS?
-For the rich features it provides, [NextDNS](https://nextdns.io/?from=xujj63g5) is very affordable at $19.90/year for unlimited devices. NextDNS pays for itself if it saves my family from a malicious incident.
+## 我應該付費使用 NextDNS 嗎？
+考慮到它提供的豐富功能，[NextDNS](https://nextdns.io/?from=xujj63g5) 價格非常實惠，每年僅需 $19.90 美元即可使用無限裝置。如果它能讓我的家人免於惡意事件的侵害，NextDNS 就值回票價了。
 
-## Does the amount of features enabled affect the speed of NextDNS?<sup>[1](https://github.com/yokoffing/NextDNS-Config/issues/12#issue-1465457977) [2](https://www.reddit.com/r/nextdns/comments/135utai/comment/jilbus8/?=&context=3)</sup>
+## 啟用的功能數量會影響 NextDNS 的速度嗎？<sup>[1](https://github.com/yokoffing/NextDNS-Config/issues/12#issue-1465457977) [2](https://www.reddit.com/r/nextdns/comments/135utai/comment/jilbus8/?=&context=3)</sup>
 
-The number of settings you toggle on will not affect your DNS latency.
+您開啟的設定數量不會影響您的 DNS 延遲。
 
-## Do I need to set DoH at browser-level if I already use NextDNS at system-level?
-Unless you use a separate profile for the browser, it is [not neccessary](https://www.reddit.com/r/nextdns/comments/yfjvqy/is_it_redundant_to_set_at_doh_at_browserlevel_if/iu3vjzt/?context=3). However, I recommend [setting it in your web browser](https://itechtics.com/dns-over-https/#how-to-enable-or-disable-dns-over-https-in-your-browsers) anyway. 
+## 如果我已經在系統層級使用 NextDNS，還需要在瀏覽器層級設定 DoH 嗎？
+除非您為瀏覽器使用單獨的設定檔，否則這[不是必須的](https://www.reddit.com/r/nextdns/comments/yfjvqy/is_it_redundant_to_set_at_doh_at_browserlevel_if/iu3vjzt/?context=3)。但是，我建議無論如何都要[在您的網頁瀏覽器中設定它](https://itechtics.com/dns-over-https/#how-to-enable-or-disable-dns-over-https-in-your-browsers)。
 
-## I have a router profile and a device profile. Which one does my device use?
-The device will use the profile set by the [NextDNS](https://nextdns.io/?from=xujj63g5) app or the installed [root CA](https://help.nextdns.io/t/g9hmv0a/how-to-install-and-trust-nextdns-root-ca). However, if the device has not been configured to use a separate profile, then it will use the wifi/router configuration.<sup>[1](https://www.reddit.com/r/nextdns/comments/yf4hnv/question_about_home_router_and_app_running_in/)</sup>
+## 我有一個路由器設定檔和一個裝置設定檔。我的裝置會使用哪一個？
+裝置將使用由 [NextDNS](https://nextdns.io/?from=xujj63g5) 應用程式或已安裝的 [root CA](https://help.nextdns.io/t/g9hmv0a/how-to-install-and-trust-nextdns-root-ca) 設定的設定檔。但是，如果裝置未配置為使用單獨的設定檔，則它將使用 wifi/路由器設定。<sup>[1](https://www.reddit.com/r/nextdns/comments/yf4hnv/question_about_home_router_and_app_running_in/)</sup>
 
-## What is the difference between security, privacy, and anonymity?
-See [article](https://thenewoil.org/en/guides/prologue/secprivanon/) | [video](https://www.youtube.com/watch?v=Wpkh-hfULgE)
+## 安全性、隱私權和匿名性有什麼區別？
+請參閱 [文章](https://thenewoil.org/en/guides/prologue/secprivanon/) | [影片](https://www.youtube.com/watch?v=Wpkh-hfULgE)
 
-## Does NextDNS hide activity from my Internet Service Provider (ISP)?
-Encrypted DNS queries boost privacy and security. This encryption stops your ISP from seeing what websites you search for and visit.
+## NextDNS 會對我的網際網路服務供應商 (ISP) 隱藏活動嗎？
+加密的 DNS 查詢可提升隱私權和安全性。這種加密可阻止您的 ISP 查看您搜尋和造訪的網站。
 
-However, encrypted DNS does not hide website IP addresses from your ISP. While your ISP cannot see the specific domain you want to access, they can see that you contact DNS servers like Cloudflare or AWS. If you repeatedly send data to a certain IP address, your ISP can guess you are visiting a website at that address.
+然而，加密 DNS 並不會對您的 ISP 隱藏網站 IP 位址。雖然您的 ISP 無法看到您想存取的特定網域，但他們可以看到您連線到 Cloudflare 或 AWS 等 DNS 伺服器。如果您反覆傳送資料到某個 IP 位址，您的 ISP 可以猜測您正在造訪該位址的網站。
 
-## Do I need a VPN?
-IVPN [argues](https://www.ivpn.net/blog/why-you-dont-need-a-vpn/) you only need a VPN for three reasons. Mainly, in order to:
+## 我需要 VPN 嗎？
+IVPN [認為](https://www.ivpn.net/blog/why-you-dont-need-a-vpn/) 您只需要在三個理由下使用 VPN。主要是為了：
 
-1. Hide your real IP address from websites and peer-to-peer networks, which prevents ISPs and mobile carriers from tracking your online activity.
+1. 對網站和點對點網路隱藏您的真實 IP 位址，這可防止 ISP 和行動電信業者追蹤您的線上活動。
 
-2. Guard against [man in the middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) and other [common attacks](https://en.wikipedia.org/wiki/Evil_twin_(wireless_networks)) on public Wi-Fi networks in places like airports, hotels, cafes, and libraries.
+2. 在機場、飯店、咖啡館和圖書館等場所的公共 Wi-Fi 網路上防範[中間人攻擊](https://en.wikipedia.org/wiki/Man-in-the-middle_attack)和其他[常見攻擊](https://en.wikipedia.org/wiki/Evil_twin_(wireless_networks))。
 
-3. Bypass censorship or geographic restrictions, allowing you to access blocked websites and content.
+3. 繞過審查或地理限制，讓您可以存取被封鎖的網站和內容。
 
-Ultimately, you don't need a VPN unless your [threat model](https://thenewoil.org/en/guides/prologue/threat-model/) demands it. Here are VPN suggestions from [Techlore](https://www.techlore.tech/vpn.html) and [Tom Spark Reviews](https://www.vpntierlist.com/vpn-tier-list-2024) if it does.
+最終，除非您的[威脅模型](https://thenewoil.org/en/guides/prologue/threat-model/)有此需求，否則您不需要 VPN。如果有需求，這裡有來自 [Techlore](https://www.techlore.tech/vpn.html) 和 [Tom Spark Reviews](https://www.vpntierlist.com/vpn-tier-list-2024) 的 VPN 建議。
 
 ***
-# Mentions :books:
+# 相關提及與參考 :books:
 
-### User Comments
-* See [here](https://socialgrep.com/search?query=yokoffing%2Cnextdns)
+### 使用者評論
+* 請參閱 [此處](https://socialgrep.com/search?query=yokoffing%2Cnextdns)
 
 ### YouTube
-* [The ULTIMATE Guide to Mastering NextDNS!](https://www.youtube.com/watch?v=WUG57ynLb8I&t=2230s) | [clarifications](https://github.com/techlore/channel-content/issues/43) (July 2023) 
+* [The ULTIMATE Guide to Mastering NextDNS!](https://www.youtube.com/watch?v=WUG57ynLb8I&t=2230s) | [釐清說明](https://github.com/techlore/channel-content/issues/43) (2023 年 7 月)
 
-### Articles
-* [Knot Resolver — with ad blocking](https://blog.cavelab.dev/2022/12/knot-resolver-ad-blocking/) (Dec 2022)
-* [Privacy Toolkit: NextDNS](https://stephenbolen.com/privacy-toolkit-nextdns/#:~:text=I%20found%20a%20wonderful%20guide%20on%20GitHub%20that%20walks%20through%20the%20optimal%20NextDNS%20configuration) (Sept 2022)
+### 文章
+* [Knot Resolver — with ad blocking](https://blog.cavelab.dev/2022/12/knot-resolver-ad-blocking/) (2022 年 12 月)
+* [Privacy Toolkit: NextDNS](https://stephenbolen.com/privacy-toolkit-nextdns/#:~:text=I%20found%20a%20wonderful%20guide%20on%20GitHub%20that%20walks%20through%20the%20optimal%20NextDNS%20configuration) (2022 年 9 月)
 
-### Guides
-* [A comprehensive guide to setting up NextDNS](https://itsjake.me/blog/a-comprehensive-guide-to-setting-up-nextdns/) (Sept 2023)
+### 指南
+* [A comprehensive guide to setting up NextDNS](https://itsjake.me/blog/a-comprehensive-guide-to-setting-up-nextdns/) (2023 年 9 月)
 * [FMHY: DNS Adblocking](https://github.com/nbats/FMHYedit/blob/main/AdblockVPNGuide.md#-dns-adblocking) → NextDNS → Guide
 * [hagezi/dns-blocklists](https://github.com/hagezi/dns-blocklists#department_store-nextdns---limited-freepaid-) → Online DNS Services
 
-### Contributions
-* [Hagezi](https://github.com/hagezi/dns-blocklists/issues?q=author%3Ayokoffing) | [mentions](https://github.com/hagezi/dns-blocklists/issues?q=mentions%3Ayokoffing)
+### 貢獻
+* [Hagezi](https://github.com/hagezi/dns-blocklists/issues?q=author%3Ayokoffing) | [提及](https://github.com/hagezi/dns-blocklists/issues?q=mentions%3Ayokoffing)
 * [1Hosts](https://github.com/badmojr/1Hosts/issues?q=author%3Ayokoffing)
 * [Easylist](https://github.com/easylist/easylist/issues?q=author%3Ayokoffing)
 * [uBlock Origin](https://github.com/uBlockOrigin/uAssets/issues?q=author%3Ayokoffing)
