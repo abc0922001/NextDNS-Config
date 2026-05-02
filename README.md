@@ -198,9 +198,7 @@ NextDNS 將此功能標記為 [beta](https://www.vocabulary.com/dictionary/beta)
 
 某些 DoH 供應商會自動封鎖此功能。
 
-	mask.icloud.com
-	mask-h2.icloud.com
-	mask-canary.icloud.com
+	mask.icloud.com	
 
 > [!CAUTION]
 > 下方的網域可能會導致 Apple 郵件用戶端無法載入外部圖片。除非您執行非常積極的設定檔，否則不需要這些。
@@ -212,6 +210,8 @@ NextDNS 將此功能標記為 [beta](https://www.vocabulary.com/dictionary/beta)
 	doh.dns.apple.com
 	doh.dns.apple.com.v.aaplimg.com
     mask-api.icloud.com
+    mask-h2.icloud.com
+    mask-canary.icloud.com
     mask.apple-dns.net
 
 ***
