@@ -15,15 +15,9 @@
 安全性設定能保護您的資料免於受損、竊取與未經授權的使用。<sup>*^[這為什麼重要？](https://thenewoil.org/en/guides/prologue/why)*</sup>
 
 ## 威脅情資來源（Threat Intelligence Feeds）<sup><sup>[1](https://github.com/nextdns/metadata/blob/6f9b6cd0670e7e31ad2ca716742088c2fc0616c2/security/threat-intelligence-feeds.json)</sup></sup>
-> [!CAUTION]
-> 若您使用的是[推薦封鎖清單](https://github.com/yokoffing/NextDNS-Config#privacy-lock)以外的清單，請保持啟用此功能（詳見 <https://github.com/yokoffing/NextDNS-Config/issues/74> 與 <https://github.com/yokoffing/NextDNS-Config/issues/86>）。
-
 ![已啟用](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/enabled.svg) 使用威脅情資來源
 
 ## AI 驅動威脅偵測（AI-Driven Threat Detection）<sup><sup>[1](https://x.com/NextDNS/status/1440291577713233925)</sup></sup>
-
-雖然大多數使用者回報這項功能運作良好，但 NextDNS 仍將其標示為 [beta](https://www.vocabulary.com/dictionary/beta)（測試版）。
-
 ![已停用](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/disabled.svg) 啟用 AI 驅動威脅偵測
 
 ## Google 安全瀏覽（Google Safe Browsing）<sup><sup> [1](https://safebrowsing.google.com/safebrowsing/report_general/) [2](https://blog.cryptographyengineering.com/2019/10/13/dear-apple-safe-browsing-might-not-be-that-safe/) [3](https://the8-bit.com/apple-proxies-google-safe-browsing-privacy/) [4](https://github.com/brave/brave-browser/wiki/Deviations-from-Chromium-(features-we-disable-or-remove)#services-we-proxy-through-brave-servers) </sup></sup>
@@ -32,37 +26,74 @@
 
 ![已停用](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/disabled.svg) 啟用 Google 安全瀏覽
 
-## 挖礦劫持防護（Cryptojacking Protection）<sup><sup>[1](https://github.com/nextdns/metadata/blob/6f9b6cd0670e7e31ad2ca716742088c2fc0616c2/security/cryptojacking.json)</sup></sup>
-> [!CAUTION]
-> 若您使用的是[推薦封鎖清單](https://github.com/yokoffing/NextDNS-Config#privacy-lock)以外的清單，請保持啟用此功能（詳見 <https://github.com/yokoffing/NextDNS-Config/issues/31>）。
-
-![已停用](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/disabled.svg) 啟用挖礦劫持防護
-
-## DNS 重綁定防護（DNS Rebinding Protection）<sup><sup>[1](https://help.nextdns.io/t/35hmval/what-is-dns-rebinding-protection) [2](https://www.reddit.com/r/nextdns/comments/t0ne8r/does_dns_rebinding_protection_block_remote_access/?context=3)</sup></sup>
-![已啟用](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/enabled.svg)  啟用 DNS 重綁定防護
-
-## IDN 同型異義字攻擊防護（IDN Homograph Attacks Protection）<sup><sup>[1](https://web.archive.org/web/20230325073817/https://blog.riotsecurityteam.com/idn-homograph-attacksprevention) [2](https://akamai.com/blog/security/watch-your-step-the-prevalence-of-idn-homograph-attacks)</sup></sup>
-![已啟用](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/enabled.svg) 啟用同型異義字攻擊防護
-
-## 誤植網域防護（Typosquatting Protection）<sup><sup>[1](https://github.com/nextdns/metadata/blob/6f9b6cd0670e7e31ad2ca716742088c2fc0616c2/security/typosquatting/protected-domains)</sup></sup>
-![已啟用](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/enabled.svg) 啟用誤植網域防護
-## 網域生成演算法防護（DGA Protection）
-![已啟用](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/enabled.svg) 啟用 DGA 防護
-## 封鎖新註冊網域（NRDs）<sup><sup>[1](https://boldgrid.com/instagram-influencer-accounts-are-being-hacked-phishing-attacks) </sup></sup>
+## 新註冊網域（Newly Registered Domains, NRDs）<sup><sup>[1](https://boldgrid.com/instagram-influencer-accounts-are-being-hacked-phishing-attacks) </sup></sup>
 > [!WARNING]
 > 封鎖新註冊網域（NRDs）[偶爾](https://www.reddit.com/r/InternetIsBeautiful/comments/w2wdro/comment/iguvg8y/?context=3)會造成[誤判](https://csrc.nist.gov/glossary/term/false_positive)。將 NRD 加入允許清單時請務必謹慎；一旦加入，**切勿**向該 NRD 提供任何[敏感資訊](https://egnyte.com/guides/governance/sensitive-information)。*若您打算採取「[一勞永逸](https://glosbe.com/en/en/set-and-forget)」的設定方式，請停用此設定。*
 
-![已啟用](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/enabled.svg) 封鎖新註冊網域（NRDs）
+![已啟用](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/enabled.svg) 封鎖新註冊網域
 
-## 封鎖動態 DNS 主機名稱（Dynamic DNS Hostnames）<sup><sup>[1](https://github.com/nextdns/ddns-domains/blob/main/suffixes) [2](https://x.com/NextDNS/status/1541740963760144386) </sup></sup>
+## 新啟用網域（Newly Active Domains）
+> [!NOTE]
+> 此功能常會將流量較低但並非惡意的網頁標示為威脅（[誤判](https://csrc.nist.gov/glossary/term/false_positive)）。
+
+![已停用](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/disabled.svg) 封鎖新啟用網域
+
+## 免費託管網域（Free Hosting Domains）
+![已停用](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/disabled.svg) 封鎖免費託管網域
+
+## 動態 DNS 主機名稱（Dynamic DNS Hostnames）<sup><sup>[1](https://github.com/nextdns/ddns-domains/blob/main/suffixes) [2](https://x.com/NextDNS/status/1541740963760144386) </sup></sup>
 > [!TIP]
 > 啟用此設定後，動態 DNS（DDNS）服務仍可正常存取自家網站並呼叫更新 API。
 
-![已啟用](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/enabled.svg) 啟用封鎖動態 DNS 主機名稱
+![已啟用](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/enabled.svg) 封鎖動態 DNS 主機名稱
 
-## 封鎖停放網域（Parked Domains）<sup><sup>[1](https://github.com/nextdns/metadata/blob/6f9b6cd0670e7e31ad2ca716742088c2fc0616c2/security/parked-domains-cname)</sup></sup>
+## 通道端點（Tunneling Endpoints）
+> [!WARNING]
+> 可能會影響開發人員工作流程、網站託管或遠端家用伺服器連線。
+
+![已啟用](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/enabled.svg) 封鎖通道端點
+
+## 住宅網路託管（Residential Hosting）
+![已停用](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/disabled.svg) 封鎖住宅網路託管
+
+## 不受信任的憑證（Untrusted Certificates）
+> [!NOTE]
+> 憑證通常由網頁瀏覽器負責處理，但您仍可嘗試啟用此功能。
+
+![已停用](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/disabled.svg) 封鎖不受信任的憑證
+
+## 資料投遞服務（Data Drop Services）
+![已停用](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/disabled.svg) 封鎖資料投遞服務
+
+## DNS 酬載傳遞（DNS Payload Delivery）
+![已啟用](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/enabled.svg) 阻斷 DNS 酬載傳遞
+
+## 區域網路位址（Local Network Addresses）<sup><sup>[1](https://help.nextdns.io/t/35hmval/what-is-dns-rebinding-protection) [2](https://www.reddit.com/r/nextdns/comments/t0ne8r/does_dns_rebinding_protection_block_remote_access/?context=3)</sup></sup>
+亦稱 DNS 重綁定防護（DNS Rebinding Protection）
+
+![已啟用](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/enabled.svg) 封鎖區域網路位址
+
+## 加密貨幣挖礦（Cryptocurrency Mining）<sup><sup>[1](https://github.com/nextdns/metadata/blob/6f9b6cd0670e7e31ad2ca716742088c2fc0616c2/security/cryptojacking.json)</sup></sup>
+> [!CAUTION]
+> 若您使用的是[推薦封鎖清單](https://github.com/yokoffing/NextDNS-Config#privacy-lock)以外的清單，請保持啟用此功能（詳見 <https://github.com/yokoffing/NextDNS-Config/issues/31>）。
+
+![已停用](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/disabled.svg) 封鎖加密貨幣挖礦
+
+## 去中心化網路閘道（Decentralized Web Gateways）
+![已啟用](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/enabled.svg) 封鎖去中心化網路閘道
+
+## 停放網域（Parked Domains）<sup><sup>[1](https://github.com/nextdns/metadata/blob/6f9b6cd0670e7e31ad2ca716742088c2fc0616c2/security/parked-domains-cname)</sup></sup>
 ![已啟用](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/enabled.svg) 封鎖停放網域
-## 封鎖頂級網域（TLDs）<sup><sup>[1](https://webtribunal.net/blog/tld-statistics/) [2](https://www.spamhaus.org/reputation-statistics/cctlds/domains/) [3](https://bleepingcomputer.com/news/security/verified-twitter-accounts-hacked-to-send-fake-suspension-notices/) [4](https://github.com/DandelionSprout/adfilt/blob/master/Dandelion%20Sprout's%20Anti-Malware%20List.txt) [5](https://github.com/DandelionSprout/adfilt/issues/659#issuecomment-1284845803) </sup></sup>
+
+## 高風險頂級網域（High-Risk TLDs）
+ *若您打算採取「[一勞永逸](https://glosbe.com/en/en/set-and-forget)」的設定方式，請跳過此步驟。*
+ 
+![已停用](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/disabled.svg) 封鎖高風險頂級網域
+
+## 網域生成演算法（Domain Generation Algorithms）
+![已啟用](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/enabled.svg) 封鎖 DGA 網域
+
+## 頂級網域（Top-Level Domains, TLDs）<sup><sup>[1](https://webtribunal.net/blog/tld-statistics/) [2](https://www.spamhaus.org/reputation-statistics/cctlds/domains/) [3](https://bleepingcomputer.com/news/security/verified-twitter-accounts-hacked-to-send-fake-suspension-notices/) [4](https://github.com/DandelionSprout/adfilt/blob/master/Dandelion%20Sprout's%20Anti-Malware%20List.txt) [5](https://github.com/DandelionSprout/adfilt/issues/659#issuecomment-1284845803) </sup></sup>
 
 > [!IMPORTANT]
 > 由於這項功能會同時攔截網頁瀏覽與子請求，封鎖 [TLDs](https://www.geeksforgeeks.org/components-of-a-url) 時可能會將合法網站與惡意網站一併封鎖。不過，下方列出的清單應能在防範常見濫用 TLD 的同時，維持日常正常瀏覽。
@@ -157,28 +188,33 @@
 	Amazon Alexa
 	Roku
 	Sonos
+	LG
 
 </details>
+
+## 封鎖輪替廣告網域（Block Rotating Ad Domains）
+![已啟用](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/enabled.svg) 封鎖輪替廣告網域
 
 ## 封鎖偽裝的第三方追蹤器（Block Disguised Third-Party Trackers）<sup><sup>[1](https://github.com/nextdns/cname-cloaking-blocklist/blob/master/domains) [2](https://www.reddit.com/r/nextdns/comments/10nenu3/disguised_trackers_are_blocked_regardless_of) [3](https://medium.com/nextdns/cname-cloaking-the-dangerous-disguise-of-third-party-trackers-195205dc522a) [4](https://arxiv.org/pdf/2102.09301.pdf) [5](https://tma.ifip.org/2020/wp-content/uploads/sites/9/2020/06/tma2020-camera-paper66.pdf) </sup></sup>
 ![已停用](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/disabled.svg) 封鎖偽裝的第三方追蹤器
 
-這份網域[清單](https://github.com/nextdns/cname-cloaking-blocklist/blob/master/domains)已多年未更新，且會封鎖部分「**允許聯盟行銷與追蹤連結**」無法解除封鎖的推薦連結網域。即使停用此清單，NextDNS 預設仍會封鎖 [CNAME 記錄](https://en.wikipedia.org/wiki/CNAME_record)。
+這份清單會封鎖部分「**允許追蹤連結**」無法解除封鎖的推薦連結網域。即使停用此清單，NextDNS 預設仍會封鎖 [CNAME 記錄](https://en.wikipedia.org/wiki/CNAME_record)。
 
-## 允許聯盟行銷與追蹤連結（Allow Affiliate & Tracking Links）<sup><sup>[1](https://github.com/nextdns/click-tracking-domains) [2](https://x.com/NextDNS/status/1539229377560461312) </sup></sup>
+## 允許追蹤連結（Allow Tracking Links）<sup><sup>[1](https://github.com/nextdns/click-tracking-domains) [2](https://x.com/NextDNS/status/1539229377560461312) </sup></sup>
 > [!TIP]
 > 系統會透過 [TCP](https://educba.com/what-is-tcp-ip) [代理](https://en.wikipedia.org/wiki/Proxy_server#/media/File:Proxy_concept_en.svg)自動隱藏您的 IP 位址，以保障您的隱私。<p>
 
 > [!WARNING]
 > 停用此設定會導致部分電子郵件中的連結無法正常開啟。
 
-![已啟用](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/enabled.svg) 允許聯盟行銷與追蹤連結
+![已啟用](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/enabled.svg) 允許追蹤連結
 
 ***
 
 # 家長監護 :family_man_woman_boy:
 ## YouTube 嚴格篩選模式（YouTube Restricted Mode）
 ![已停用](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/disabled.svg) 強制啟用 YouTube 嚴格篩選模式
+
 ## 封鎖繞過方法（Block Bypass Methods）<sup><sup>[1](https://github.com/nextdns/dns-bypass-methods)</sup></sup>
 封鎖可用來繞過 NextDNS 過濾機制的工具，例如 VPN、代理伺服器、Tor 軟體與加密 DNS 服務。
 > [!CAUTION]
@@ -376,6 +412,7 @@ Paramount+ 會透過特定網域顯示廣告。即使您訂閱的是無廣告方
 
 ## 匿名化 EDNS 用戶端子網段（Anonymized EDNS Client Subnet）<sup><sup>[1](https://help.nextdns.io/t/m1hmv04/what-is-edns-client-subnet-ecs) </sup></sup>
 ![已啟用](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/enabled.svg) 啟用匿名化 EDNS 用戶端子網段
+
 ## 快取加速（Cache Boost）<sup><sup>[1](https://www.reddit.com/r/nextdns/comments/girmcf/new_setting_cache_boost/)</sup></sup>
 ![已啟用](https://raw.githubusercontent.com/yokoffing/NextDNS-Config/main/icons/enabled.svg) 啟用快取加速
 
@@ -414,9 +451,9 @@ Paramount+ 會透過特定網域顯示廣告。即使您訂閱的是無廣告方
 
 | 作業系統 | 瀏覽器 | 內容封鎖器 |
 |---|---|---|
-| iOS | [Safari](https://www.privacyguides.org/en/mobile-browsers/#safari) | [wBlock](https://apps.apple.com/us/app/wblock/id6746388723) 或 [AdGuard](https://www.privacyguides.org/en/browser-extensions/?h=adguard#adguard) |
+| iOS | [Safari](https://www.privacyguides.org/en/mobile-browsers/#safari) | [wBlock](https://apps.apple.com/us/app/wblock/id6746388723)、[uBlock Origin Lite](https://apps.apple.com/us/app/ublock-origin-lite/id6745342698) 或 [AdGuard](https://www.privacyguides.org/en/browser-extensions/?h=adguard#adguard) |
 | Android | [Brave](https://www.privacyguides.org/en/mobile-browsers/#brave) | 內建封鎖器 |
-| Windows <br> macOS <br> Linux | [Firefox](https://www.mozilla.org/en-US/firefox/new/)（搭配 [Betterfox](https://github.com/yokoffing/Betterfox#betterfox)）<p><p> [Brave](https://www.privacyguides.org/en/desktop-browsers/#brave) | [uBlock Origin](https://addons.mozilla.org/blog/ublock-origin-everything-you-need-to-know-about-the-ad-blocker/) <p><p> 內建封鎖器或 [uBlock Origin](https://addons.mozilla.org/blog/ublock-origin-everything-you-need-to-know-about-the-ad-blocker/) |
+| Windows <br> macOS <br> Linux | [Firefox](https://www.mozilla.org/en-US/firefox/new/)（搭配 [Betterfox](https://github.com/yokoffing/Betterfox#betterfox)）<p><p> [Brave](https://www.privacyguides.org/en/desktop-browsers/#brave) <p><p> [Helium](https://helium.computer/) | [uBlock Origin](https://addons.mozilla.org/blog/ublock-origin-everything-you-need-to-know-about-the-ad-blocker/) <p><p> 內建封鎖器或 [uBlock Origin](https://addons.mozilla.org/blog/ublock-origin-everything-you-need-to-know-about-the-ad-blocker/) |
 
 總而言之，只要您結合 [NextDNS](https://nextdns.io/?from=xujj63g5) 與任何搭載廣告封鎖器的瀏覽器，防護涵蓋範圍就已經超越大多數人了。
 
